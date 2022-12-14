@@ -1,0 +1,19 @@
+.guess-card {
+  font-size: large;
+}
+
+.guess-submit {
+  border: 1px solid;
+  margin: 1rem;
+  transition: 1s;
+}
+
+.guess-submit:hover {
+  background-color: rgb(208, 206, 206);
+}
+
+.guess-input-box {
+  border: none;
+  font-size: large;
+  border-bottom: 1px solid;
+}

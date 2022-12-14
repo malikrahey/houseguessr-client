@@ -1,0 +1,19 @@
+.end-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.end-top {
+  font-size: x-large;
+}
+
+.end-details {
+  margin-top: 2rem;
+}
+
+.end-bottom {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+

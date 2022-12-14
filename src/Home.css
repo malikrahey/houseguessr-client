@@ -1,0 +1,60 @@
+.home {
+  display: flex;
+  justify-content: center;
+}
+
+.home-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.home-title {
+  display: flex;
+  flex-direction: row;
+  font-size: 64px;
+  justify-content: center;
+}
+
+.home-logo {
+  height: 64px;
+  width: 64px;
+  transform: translateY(-16px);
+}
+
+.home-subtitle {
+  font-size: large;
+}
+
+.home-image {
+  opacity: 0.4;
+}
+
+.home-bottom {
+  padding-top: 8rem;
+  margin-top: 8rem;
+  color: black;
+  border-radius: 64px;
+  margin: 0;
+}
+
+.play-button {
+  font: 400;
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: rgb(210, 210, 210);
+  border-radius: 64px;
+  width: 256px;
+  height: 64px;
+  box-shadow: 1px 4px black;
+  transition: 0.5s;
+}
+
+.play-button:hover {
+  background-color: rgba(210, 210, 210, 0.444);
+}
