@@ -8,7 +8,7 @@ export default function Header() {
       <div className="header-left">
         <a className="header-link" href="/">
           <HomeModernIcon className="header-logo" />
-          HouseGuessr.ca
+          HouseGuessr
         </a>
       </div>
 

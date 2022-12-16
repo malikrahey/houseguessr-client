@@ -1,12 +1,12 @@
 import "./EndScreen.css"
-
+import ProgressBar from "@ramonak/react-progress-bar";
 
 export default function EndScreen({totalScore}) {
 
 
-  const highScore = localStorage.getItem("highscore") || 0;
+  const highScore = localStorage.getItem("highscoreNew") || 0;
   if (totalScore > highScore) {
-    localStorage.setItem("highscore", totalScore);
+    localStorage.setItem("highscoreNew", totalScore);
   }
 
   return (
@@ -16,8 +16,22 @@ export default function EndScreen({totalScore}) {
           End
         </div>
         <div className="end-details">
-          You scored {totalScore} points! <br />
-          High Score: {highScore} points
+          <div className="end-score">
+            Your Score
+            <ProgressBar
+              completed={String(totalScore)}
+              maxCompleted={25000}
+              animateOnRender={true}
+            />
+          </div>
+          <div className="end-highscore">
+            Highscore
+            <ProgressBar
+              completed={String(highScore)}
+              maxCompleted={25000}
+              animateOnRender={true}
+            />
+          </div>
         </div>
       </div>
 

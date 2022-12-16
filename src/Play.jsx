@@ -7,6 +7,7 @@ import { useHouses } from "./hooks/useHouses";
 import Header from "./components/Header";
 import EndScreen from "./components/Play/EndScreen";
 import {Blocks} from "react-loader-spinner";
+import Scorecard from "./components/Play/Scorecard";
 
 export default function Play() {
 
@@ -29,11 +30,6 @@ export default function Play() {
   const currentHouse = houses[houseIndex];
   const currentPicture = currentHouse?.pictures !== undefined ? currentHouse.pictures[slideIndex].replace('"',"") : "";
 
-
-  useEffect(() => {
-    console.log("use effect")
-  }, [])
-
   useEffect(() => {
     setPlayerGuess(0);
   }, [currentHouse])
@@ -48,6 +44,8 @@ export default function Play() {
 
   const makeGuess = (e) => {
     e.preventDefault();
+    if(isShowingRoundScore) return;
+
 
     const guessAmount = Number.parseInt(inputRef.current.value.replace(/,/g, ''));
     setPlayerGuess(guessAmount);
@@ -100,8 +98,8 @@ export default function Play() {
             Current House {houseIndex + 1}
             <div>Location: {currentHouse?.location} </div>
             <div className="play-house-stats">
-              <span className="play-house-beds">Bedrooms: {currentHouse?.bedrooms}</span>
-              <span className="play-house-baths">Bathrooms: {currentHouse?.bathrooms} </span>
+              <span className="play-house-beds">Bedrooms: {currentHouse?.bedrooms <= 6 ? currentHouse?.bedrooms : '6+'}</span>
+              <span className="play-house-baths">Bathrooms: {currentHouse?.bathrooms <= 6 ? currentHouse?.bathrooms : '6+'} </span>
             </div>
           </div>
           <div className="play-picture-slideshow">
@@ -110,34 +108,16 @@ export default function Play() {
           
             <div className="next slideshow-button" onClick={() => changeSlide(1)}>➡ </div>
           </div>
-          <div className="play-guess-card">
-            <GuessInput inputRef={inputRef} onSubmit={makeGuess}/>
-          </div>
-         {isShowingRoundScore ? 
-          (
-          <Fade>
-            <div id="scorecard" className="play-round-score">
-                <div className="play-player-guess">
-                  Your Guess: {moneyFormatter.format(playerGuess)}
-                </div>
-                <div className="play-actual-price">
-                  Actual Price: {moneyFormatter.format(currentHouse?.price)}
-                </div>
-                <div className="play-round-points">
-                  Round Points: {Math.trunc(roundPoints)}
-                </div>
-                <div className="play-points">
-                  Current Points: {Math.trunc(currentPoints)}
-                </div>
-                <div className="play-continue">
-                  <button onClick={changeHouse}>Continue</button>
-                </div>
-          </div>
-        </Fade>
-        ) :
-        <></>
-        }
-        
+          <GuessInput inputRef={inputRef} onSubmit={makeGuess}/>
+          <Scorecard
+            className={isShowingRoundScore ? '' : ' hide'}
+            playerGuess={playerGuess}
+            actualPrice={currentHouse?.price}
+            roundPoints={roundPoints}
+            currentPoints={currentPoints}
+            changeHouse={changeHouse}
+            currentRound={houseIndex + 1}
+          />
       </div>
       ) :
       <>

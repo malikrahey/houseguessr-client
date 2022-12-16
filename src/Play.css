@@ -33,10 +33,11 @@
   justify-content: center;
   align-items: center;
   user-select: none;
+  background-color: rgb(222, 222, 222);
 }
 
 .slideshow-button:hover {
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(187, 187, 187);
 }
 
 .prev {

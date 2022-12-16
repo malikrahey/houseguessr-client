@@ -9,6 +9,10 @@
 
 .end-details {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 20vh;
 }
 
 .end-bottom {

@@ -14,7 +14,6 @@ export function useHouses() {
     fetch(`${import.meta.env.VITE_API_ROUTE}houses`).then(resp => 
         resp.json()
     ).then(data => {
-      console.log(data)
       const houses = data.map(item => ({
         location: item.location.S,
         price: item.price.N,
@@ -23,15 +22,15 @@ export function useHouses() {
         pictures: item.pictures.L.map(picture => picture.S)
       }))
         setHouses(houses);
+        // setHouses(data);
+
         setLoading(false);
-        console.log(houses);
-        console.log("Loading should be false now");
     })
 
     
   }
   catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }
   , []);

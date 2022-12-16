@@ -1,5 +1,19 @@
 .guess-card {
+
+  display: flex;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+
   font-size: large;
+  box-shadow: 0px 1px gray;
+  border-radius: 64px;
 }
 
 .guess-submit {
