@@ -89,3 +89,40 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: seashell;
+  }
+
+  .play-house-info {
+    background-color: #1a1a1a;
+  }
+
+  .guess-card {
+    background-color: #242424;
+  }
+
+  .slideshow-button {
+    background-color: #242424;
+  }
+
+  .header-body {
+    background-color: #242424;
+    color: seashell;
+  }
+
+  .header-link {
+    color: seashell;
+  }
+
+  .scorecard {
+    background-color: #242424;
+  }
+
+  .scorecard-continue {
+    background-color: #242424;
+  }
+}
